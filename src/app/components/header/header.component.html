@@ -1,4 +1,4 @@
-<header class="shadow-sm py-2">
+<header class="header shadow-sm py-2">
   <nav class="navbar navbar-expand-md">
     <a class="navbar-brand my-0 font-weight-normal d-inline-block mx-4 text-dark" routerLink="">BankApp</a>
     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,6 +14,10 @@
         </li>
       </ul>
         </div>
+        <ul class="navbar-nav mr-auto">
+          <i *ngIf="!theme" (click)="changeTheme()" class="material-icons">wb_sunny</i>
+            <i *ngIf="theme" (click)="changeTheme()" class="material-icons">brightness_3</i>
+        </ul>
       <div *ngIf="!loggedIn()">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
