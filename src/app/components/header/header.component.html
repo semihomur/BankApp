@@ -1,0 +1,32 @@
+<header class="shadow-sm py-2">
+  <nav class="navbar navbar-expand-md">
+    <a class="navbar-brand my-0 font-weight-normal d-inline-block mx-4 text-dark" routerLink="">BankApp</a>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa fa-bars text-dark"></i>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" *ngIf="loggedIn()">
+          <a class="nav-link p-2 text-dark d-inline-block" routerLink="/faturaode">Fatura Ödeme</a>
+        </li>
+        <li class="nav-item" *ngIf="loggedIn()">
+          <a class="nav-link p-2 text-dark d-inline-block" routerLink="/kreditahmini">Kredi Tahmini</a>
+        </li>
+      </ul>
+        </div>
+      <div *ngIf="!loggedIn()">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link p-2 text-dark d-inline-block" routerLink="/girisyap">Giriş Yap</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link p-2 text-dark d-inline-block" routerLink="/kayitol">Kayıt Ol</a>
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="loggedIn()" class="p-2">
+            <button mat-button routerLink="/hesaplarim">Hesaplarım</button>
+            <button mat-button [routerLink]="['/']" (click)="logout()"><i class="fa fa-sign-out"></i>Çıkış Yap</button>
+      </div>
+  </nav>
+</header>

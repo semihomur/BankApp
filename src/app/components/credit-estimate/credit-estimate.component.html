@@ -1,0 +1,36 @@
+<div class="container">
+    <form [formGroup]="estimateCreditForm" (ngSubmit)="onSubmit()">
+  <div class="m-5 d-flex flex-column align-items-center">
+    <mat-card class="w-25 my-2">
+        <mat-label>Yaş:</mat-label> <mat-label class="float-right">{{authService.decodedToken.birthdate}}</mat-label>
+      </mat-card>
+      <mat-card class="w-50 my-2">
+          <mat-label>Ev Durumu</mat-label>
+          <mat-radio-group class="float-right" formControlName="homeCondition">
+            <mat-radio-button class="mx-3" *ngFor="let homeCondition of homeConditions" [value]="homeCondition.value" color="primary">{{homeCondition.displayValue}}</mat-radio-button>
+          </mat-radio-group>
+      </mat-card>
+      <mat-card class="w-50 my-2">
+          <mat-label class="w-50 mr-2">Kredi Çekmek İstediğiniz Miktar</mat-label>
+          <mat-form-field class="w-50 text-center">
+              <input formControlName="price" type="number" maxlength=11 matInput placeholder="Miktar">
+            </mat-form-field>
+      </mat-card>
+      <mat-card class="w-50 my-2">
+          <mat-label>Telefon Durumu</mat-label>
+          <mat-radio-group class="float-right" formControlName="phoneCondition">
+            <mat-radio-button class="mx-3" *ngFor="let phoneCondition of phoneConditions" [value]="phoneCondition.value" color="primary">{{phoneCondition.displayValue}}</mat-radio-button>
+          </mat-radio-group>
+      </mat-card>
+      <mat-card class="w-50 my-2">
+          <mat-label class="mr-5">Kaç kez kredi çektiniz</mat-label>
+          <mat-form-field class="ml-5 text-center">
+              <input formControlName="howManyTimesHaveYouTakenCredit" type="text" maxlength=2 matInput placeholder="Miktar" numbersOnly>
+            </mat-form-field>
+      </mat-card>
+      <div class="my-3 w-25">
+        <button type="submit" [disabled]="!estimateCreditForm.valid" mat-raised-button color="primary" class="btn-block">Kredi Tahmini</button>
+      </div>
+</div>
+</form>
+</div>

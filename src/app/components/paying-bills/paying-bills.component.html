@@ -1,0 +1,32 @@
+<div class="container">
+    <mat-horizontal-stepper [linear]="true" #stepper class="m-5">
+        <mat-step>
+            <form [formGroup]="billForm">
+              <ng-template matStepLabel>Telefon Borcunu Sorgula</ng-template>
+              <mat-form-field class="w-25 m-5">
+                <input type="text" maxlength=11 formControlName="phoneNumber" matInput placeholder="Telefon Numarası" numbersOnly>
+              </mat-form-field>
+              <div>
+                <button [disabled]="!billForm.valid" mat-raised-button (click)="QueryDept(stepper)">Borç Sorgula</button>
+              </div>
+            </form>
+        </mat-step>
+        <mat-step>
+            <form [formGroup]="billForm">
+            <ng-template matStepLabel>Telefon Faturanı Öde</ng-template>
+            <p>Telefon Borcunuz {{dept}} TL'dir.</p>
+           <mat-form-field class="w-25 m-5">
+              <mat-label>Hesaplarım</mat-label>
+            <mat-select formControlName="account">
+                <mat-option *ngFor="let account of accountList" [value]="account">
+                   {{account.accountNo}}
+                </mat-option>
+              </mat-select>
+           </mat-form-field>
+            <div>
+              <button [disabled]="!billForm.get('account').value" mat-raised-button (click)="PayBill()">Öde</button>
+            </div>
+          </form>
+        </mat-step>
+      </mat-horizontal-stepper>
+</div>

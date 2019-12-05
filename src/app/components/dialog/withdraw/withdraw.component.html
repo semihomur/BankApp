@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="d-flex justify-content-between">
+      <h4>Para Çekme</h4>
+    </div>
+    <hr>
+    <form [formGroup]="withdrawForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+      <div class="form-group col-12">
+          <mat-form-field class="w-100">
+            <input placeholder="Ücret" type="number" matInput formControlName="price">
+          </mat-form-field>
+          </div>
+      </div>
+      <button mat-raised-button type="submit" [disabled]="withdrawForm.invalid">Para Çek</button>
+    </form>
+  </div>

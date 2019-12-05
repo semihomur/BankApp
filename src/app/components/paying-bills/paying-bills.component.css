@@ -1,0 +1,6 @@
+::ng-deep .mat-horizontal-content-container {
+    text-align: center;
+}
+::ng-deep .mat-horizontal-stepper-header {
+    pointer-events: none !important;
+}

@@ -1,0 +1,41 @@
+<div class="m-3">
+    <div class="d-flex justify-content-center">
+        <h4>Giriş Yap</h4>
+      </div>
+   <div class="container">
+      <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="form-group col-12 text-center">
+                <mat-form-field class="full-width w-50">
+                    <input type="tckno" minlength=11 maxlength=11 matInput formControlName="tckno" placeholder="TCK No" [ngClass]="{'is-invalid': loginForm.get('tckno').errors && loginForm.get('tckno').touched}">
+                    <mat-error *ngIf="loginForm.get('tckno').hasError('required') && loginForm.get('tckno').touched ">
+                        Lütfen TC Kimlik Numaranızı giriniz
+                      </mat-error>
+                      <mat-error *ngIf="loginForm.get('tckno').errors?.pattern && loginForm.get('tckno').touched ">
+                          Lütfen geçerli bir TC Kimlik Numaranızı giriniz
+                        </mat-error>
+                  </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-12  text-center">
+                <mat-form-field class="full-width w-50">
+                    <input type="password" maxlength=15 matInput formControlName="password" placeholder="Şifre"  [ngClass]="{'is-invalid': loginForm.get('password').errors && loginForm.get('password').touched}">
+                    <mat-error *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched ">
+                        Lütfen şifrenizi giriniz
+                      </mat-error>
+                      <mat-error *ngIf="loginForm.get('password').hasError('minlength')">
+                          Şifreniz minumum 6 karaktere sahip olmalıdır
+                        </mat-error>
+                        <mat-error *ngIf="loginForm.get('password').hasError('maxlength')">
+                            Şifreniz maximumum 15 karaktere sahip olmalıdır
+                          </mat-error>
+                  </mat-form-field>
+                  <div class="row d-flex justify-content-center">
+                      <button [disabled]="!loginForm.valid" type="submit" mat-stroked-button color="primary" class="py-1">Giriş</button>
+                  </div>
+            </div>
+          </div>
+        </form>
+   </div>
+</div>

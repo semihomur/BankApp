@@ -1,0 +1,27 @@
+<mat-card class="w-100 my-3">
+   <div class="my-4">
+     <div class="mx-4">
+        <strong>Hesap No:</strong> <mat-label class="float-right">{{account.accountNumber}}-{{account.accountNo}}</mat-label>
+     </div>
+     <div class="m-5">
+        <strong>Bakiye:</strong> <mat-label class="float-right">{{account.balance}} TL</mat-label>
+     </div>
+     <div class="my-2">
+        <button (click)="TransferInOtherAccount()" mat-raised-button color="primary" class="btn-block">
+          Havale
+        </button>
+        <button (click)="TransferInMyOtherAccount()" mat-raised-button style="background-color: #1abc9c;" class="btn-block">
+          Virman
+         </button>
+        <button (click)="Deposit()" mat-raised-button style="background-color: #f1c40f;"class="btn-block">
+          Para Yatırma
+        </button>
+        <button (click)="Withdraw()" mat-raised-button style="background-color: #c7ecee;" class="btn-block">
+          Para Çekme
+        </button>
+        <button (click)="DeleteAccount()" style="background-color: #e74c3c;" mat-raised-button color="primary" class="btn-block mt-4">
+          Hesap Silme
+        </button>
+     </div>
+   </div>
+</mat-card>
